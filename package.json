@@ -1,0 +1,23 @@
+{
+  "name": "mlp-addon",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "gypfile": true,
+  "scripts": {
+    "install": "cmake-js compile"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "cmake-js": "^7.2.1"
+  },
+  "dependencies": {
+    "node-addon-api": "^6.1.0"
+  },
+  "cmake-js": {
+    "runtime": "node",
+    "version": "0.12.0",
+    "arch": "ia32"
+  }
+}
