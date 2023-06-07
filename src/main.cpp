@@ -1,6 +1,6 @@
 #include <napi.h>
-#include "Samples/functionexample.h"
-#include "Samples/classexample.h"
+#include "bindings/functionexample.h"
+#include "bindings/classexample.h"
 
 Napi::Object InitAll(Napi::Env env, Napi::Object exports) {
     functionexample::Init(env, exports);

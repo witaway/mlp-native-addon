@@ -1,4 +1,5 @@
-const testAddon = require('./build/Debug/test.node');
+const testAddon = require('./lib/index');
+
 console.log('addon',testAddon);
 console.log('hello ', testAddon.hello());
 console.log('add ', testAddon.add(5, 10));
@@ -11,5 +12,3 @@ const newFromExisting = new testAddon.ClassExample(prevInstance);
 
 console.log('Testing class initial value for derived instance');
 console.log(newFromExisting.getValue());
-
-module.exports = testAddon;

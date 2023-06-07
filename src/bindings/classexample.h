@@ -1,5 +1,5 @@
 #include <napi.h>
-#include "actualclass.h"
+#include "../actual/actualclass.h"
 
 class ClassExample : public Napi::ObjectWrap<ClassExample> {
  public:
