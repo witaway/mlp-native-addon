@@ -1,14 +1,29 @@
-const testAddon = require('./lib/index');
+const mlp = require('./lib/index');
 
-console.log('addon',testAddon);
-console.log('hello ', testAddon.hello());
-console.log('add ', testAddon.add(5, 10));
+const trainingSamples = [
+    new mlp.TrainingSample([0, 0], [0]),
+    new mlp.TrainingSample([0, 0], [0]),
+    new mlp.TrainingSample([0, 0], [0]),
+    new mlp.TrainingSample([0, 1], [1]),
+    new mlp.TrainingSample([1, 0], [1]),
+    new mlp.TrainingSample([1, 1], [1])
+]
 
-const prevInstance = new testAddon.ClassExample(4.3);
-console.log('Initial value : ', prevInstance.getValue());
-console.log('After adding 3.3 : ', prevInstance.add(3.3));
+for(let sample of trainingSamples) {
+    sample.addBiasValue(1);
+}
 
-const newFromExisting = new testAddon.ClassExample(prevInstance);
+numFeatures = trainingSamples[0].inputVector.length;
+numOutputs = trainingSamples[0].outputVector.length;
 
-console.log('Testing class initial value for derived instance');
-console.log(newFromExisting.getValue());
+network = new mlp.MLP([numFeatures, 2, numOutputs], ['sigmoid', 'linear']);
+network.train(trainingSamples, 0.5, 500, 0.25);
+
+for(let sample of trainingSamples) {
+    const output = network.getOutput(sample.inputVector);
+    for(let i = 0; i < numOutputs; i++) {
+        const predicted = output[i] > 0.5;
+        const correct = sample.outputVector[i] > 0.5;
+        console.log(predicted === correct);
+    }
+}

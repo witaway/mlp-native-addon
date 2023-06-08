@@ -8,7 +8,7 @@ include_directories(${CMAKE_JS_INC})
 
 file(GLOB SOURCE_FILES "src/*.cpp" "src/*.h" "src/**/*.cpp" "src/**/*.h")
 
-add_library(${PROJECT_NAME} SHARED ${SOURCE_FILES} ${CMAKE_JS_SRC})
+add_library(${PROJECT_NAME} SHARED ${SOURCE_FILES} ${CMAKE_JS_SRC} src/bindings/MLP.cpp src/bindings/MLP.h src/bindings/TrainingSample.cpp src/bindings/TrainingSample.h src/bindings/test.h)
 set_target_properties(${PROJECT_NAME} PROPERTIES PREFIX "" SUFFIX ".node")
 
 target_include_directories(${PROJECT_NAME} PRIVATE

@@ -1,8 +1,23 @@
-export function hello(): string;
-export function add(a: number, b: number): number;
-export class ClassExample {
-    constructor(value: number);
-    constructor(parent: ClassExample);
-    add(toAdd: number): number;
-    getValue(): number;
+export class TrainingSample {
+    constructor(inputVector: number[], outputVector: number[]);
+    get inputVector(): number[];
+    get outputVector(): number[];
+    addBiasValue(biasValue: number): void;
+}
+
+type Activation = "sigmoid" | "linear";
+
+export class MLP {
+
+    constructor(filename: string);
+    constructor(layersNodes: number[], layersActivations: Activation[], customWeightInit?: number);
+
+    saveMLPNetwork(filename: string): void;
+    loadMLPNetwork(filename: string): void;
+
+    getOutput(input: number[]): number[];
+    getOutputClass(input: number[]): number;
+
+    train(trainingSampleSet: TrainingSample[], learningRate: number): void;
+    train(trainingSampleSet: TrainingSample[], learningRate: number, maxIterations: number, minErrorCost: number): void;
 }
