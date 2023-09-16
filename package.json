@@ -7,7 +7,7 @@
   "scripts": {
     "install": "cmake-js compile"
   },
-  "author": "",
+  "author": "Yegor Levonenko <witaway33@gmail.com>",
   "license": "ISC",
   "devDependencies": {
     "cmake-js": "^7.2.1"

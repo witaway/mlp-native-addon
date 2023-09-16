@@ -1,3 +1,9 @@
+//============================================================================
+// Name : Sample.h
+// Author : David Nogueira
+// Modified by: Yegor Levonenko
+//============================================================================
+
 #ifndef TRAININGSAMPLE_H
 #define TRAININGSAMPLE_H
 

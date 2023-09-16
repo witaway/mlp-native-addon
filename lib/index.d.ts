@@ -10,7 +10,8 @@ type Activation = "sigmoid" | "linear";
 export class MLP {
 
     constructor(filename: string);
-    constructor(layersNodes: number[], layersActivations: Activation[], customWeightInit?: number);
+    constructor(layersNodes: number[],
+                layersActivations: Activation[], customWeightInit?: number);
 
     saveMLPNetwork(filename: string): void;
     loadMLPNetwork(filename: string): void;
@@ -19,5 +20,9 @@ export class MLP {
     getOutputClass(input: number[]): number;
 
     train(trainingSampleSet: TrainingSample[], learningRate: number): void;
-    train(trainingSampleSet: TrainingSample[], learningRate: number, maxIterations: number, minErrorCost: number): void;
+    train(trainingSampleSet: TrainingSample[], learningRate: number,
+          maxIterations: number, minErrorCost: number): void;
 }
+
+
+
